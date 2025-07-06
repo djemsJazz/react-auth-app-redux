@@ -1,4 +1,4 @@
-## Simple React Auth App Template - Auth Managed With Context API
+## Simple React Auth App Template - Auth Managed With Redux
 
 I created this repos, in order to have an out of the box react auth app.
 
@@ -11,7 +11,7 @@ I Put the common/shared components into `shared` folder.
 
 I Also created a `routing` folder that will includes everything that concerns routing, for now it contains only the **MainRouter**
 
-I Also creating a context the manage auth data so that it is available throughout the application. I put two context styles (ways), a simple `Auth.tsx` one and another that uses a reducer (useReducer) `AuthReducer.tsx`, You can choose the way you like, for me i prefer the **context with the reducer** way (and that's what I used in this template) because the way we update the state is like one shot (dispatch an action that can update many state variables user, isAutehticated...) and that's what reduces re-renders and allows us to do it in a clear way.
+I Also creating a Store (Redux) to manage the Auth
 
 ### Let's talk about some shared components :)
 
