@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
-import { useSelector } from 'react-redux';
 import { Link, type LinkProps, NavLink, type NavLinkProps } from 'react-router-dom';
-import { RootState } from '../../../store/store';
+import { useAppSelector } from '../../../store/hooks';
 
 type MainProps = {
   inNav?: boolean,
@@ -11,7 +10,7 @@ type MainProps = {
 type Props = (MainProps & NavLinkProps) | (MainProps & NavLinkProps)
 
 const ProtectedLink: React.FC<Props> = ({ children, inNav = false, to, ...rest }) => {
-   const { isAuthenticated } = useSelector((state: RootState) => state.auth);
+   const { isAuthenticated } = useAppSelector((state) => state.auth);
   if (!isAuthenticated) return null;
   if (inNav) {
     return (

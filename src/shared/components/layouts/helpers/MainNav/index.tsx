@@ -1,16 +1,15 @@
 import { NavLink } from 'react-router-dom';
 import styles from './main-nav.module.css';
 import ProtectedLink from '../../../protected-link';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '../../../../../store/store';
 import { logout } from '../../../../../store/slices/auth';
+import { useAppDispatch, useAppSelector } from '../../../../../store/hooks';
 
 const MainNav = () => {
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useAppDispatch();
   const handleLogout = () => {
     dispatch(logout());
   };
-  const { isAuthenticated } = useSelector((state: RootState) => state.auth);
+  const { isAuthenticated } = useAppSelector((state) => state.auth);
   return (
     <nav className={styles.nav}>
       <p>AppLayout NAV</p>
